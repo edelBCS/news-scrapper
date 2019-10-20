@@ -19,9 +19,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB(for heroku)
-//var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-// mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
-mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true, useUnifiedTopology: true } );
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
+// mongoose.connect("mongodb://localhost/mongoHeadlines", { useNewUrlParser: true, useUnifiedTopology: true } );
 
 // Routes
 require("./routes/api")(app);
