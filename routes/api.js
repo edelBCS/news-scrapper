@@ -20,6 +20,8 @@ module.exports = function(app){
                 var imageURL = image.split("'");
                 result.image = imageURL[1];
 
+                //SAVE ARTICLES TO DB
+
                 articles.push(result);
             });
 

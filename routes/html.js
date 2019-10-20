@@ -2,6 +2,8 @@ var axios = require("axios");
 
 module.exports = function (app) {
     app.get("/", (req, res) => {
+
+        //CALL DB Instead of Scraper
         axios.get("http://" + req.headers.host + "/api/scrape")
         .then(articles => {
             res.render("index", {articles: articles.data});
