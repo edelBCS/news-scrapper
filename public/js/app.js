@@ -45,6 +45,7 @@ $(function(){
 
         // Remove Comments from Modal
         $(".modal-body").empty();
+        $("#commentCount").text("0");
 
         // Set modal add-Comment button data-id attr
         $(".add-comment-btn").attr("data-id", articleId);
@@ -83,11 +84,14 @@ $(function(){
 
     // Adds comment to modal
     function addComment(body){
+        var count = parseInt($("#commentCount").text()) + 1;
+        $("#commentCount").text(count);
+
         $(".modal-body").append(
-            $("<span>")
-            .attr("class", "badge badge-pill badge-secondary comment-pill m-1")
+            $("<p>")
+            .attr("class", "mx-4")//badge badge-pill badge-secondary comment-pill m-1")
             .text(body)
         );
-        $(".modal-body").append($("<br>"));
+        $(".modal-body").append($("<hr>").attr("class", "mx-4"));
     }
 });

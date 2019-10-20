@@ -18,13 +18,16 @@ module.exports = function(app){
                 result.abstract = $(element).children("p").text();
 
                 var image = $(element).children("div").children("div").children("div").attr("style");
-                //removes extra text and thumbnail tag from image URL
+                // removes extra text and thumbnail tag
+                // from image URL to get full res image
                 var imageURL = image.split("'");
                 imageURL =  imageURL[1].split("thumbnail_");
                 result.image = imageURL[0] + imageURL[1];
 
+                // search if article already exist
                 db.Article.findOne({title: result.title})
                     .then(qryResult => {
+                        // if it exists update it, else create a new one
                         if (qryResult)
                             db.Article.updateOne(
                                 {
