@@ -1,11 +1,13 @@
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="display-4">Welcome to MTG News</h1>
-        <p class="lead">This is a collection of news articles about Magic:The Gathering.</p>
-        <button class="btn btn-primary" id="scrape-btn"><i class="fas fa-sync-alt mr-1"></i>Re-scrape News Articles</button>
+{{!-- Page Banner --}}
+<div class="jumbotron bg-cover">
+    <div class="container" id="citylights">
+        <h1 id="bannerWelcome">Welcome to MTG News</h1>
+        <p id="bannerLead" class="lead">This is a collection of news articles about Magic:The Gathering.</p>
+        <button class="btn btn-outline-secondary" id="scrape-btn"><i class="fas fa-sync-alt mr-1"></i>Re-scrape News Articles</button>
     </div>
 </div>
 
+{{!-- Articles Section --}}
 <div class="container">
     <ul class="list-unstyled">
         {{#each articles}}
@@ -30,7 +32,6 @@
                 <button class="btn btn-secondary btn-sm like-btn" data-id="{{this._id}}"><i
                         class="far fa-thumbs-up mr-1"></i>Likes(0)</button>
                 {{/if}}
-
             </div>
         </li>
         <hr>
@@ -38,13 +39,13 @@
     </ul>
 </div>
 
-<!-- Modal -->
+{{!-- Comments Modal --}}
 <div class="modal fade" id="commentsModalCenter" tabindex="-1" role="dialog" aria-labelledby="commentsModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="commentsModalCenterTitle">Modal title</h5>
+                <h5 class="modal-title" id="commentsModalCenterTitle">Article Comments</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -53,14 +54,13 @@
 
             </div>
             <div class="modal-footer">
-                <div class="input-group mb-3">
+                <div class="input-group mb-3 col-12">
                     <input type="text" class="form-control" name="commentBody" id="commentBodyInput">
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary add-comment-btn" type="button">Add Comment</button>
+                        <button class="btn btn-outline-secondary add-comment-btn rounded-right" type="button">Add Comment</button>
                     </div>
+                    <p id="noComment" class="col-12 text-left p-0 m-0" style="color: red;"><small>Please enter comment.</small></p>
                 </div>
-                {{!-- <input type="text" name="commentBody" id="commentBody">
-                <button type="button" class="btn btn-primary add-comment-btn">Add Comment</button> --}}
             </div>
         </div>
     </div>

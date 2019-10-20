@@ -34,10 +34,14 @@ $(function(){
         });
     });
 
+    // Opens comment modal
     $(document).on("click", ".comment-btn", function(e){
         e.preventDefault();
 
         var articleId = $(this).attr("data-id");
+        
+        //hide comment error
+        $("#noComment").hide();
 
         // Remove Comments from Modal
         $(".modal-body").empty();
@@ -53,6 +57,7 @@ $(function(){
         });
     });
 
+    // Adds comment to DB and modal when Add Comment is clicked
     $(document).on("click", ".add-comment-btn", function(e){
         e.preventDefault();
 
@@ -72,10 +77,11 @@ $(function(){
                 $("#commentBodyInput").val("");
             })
         }else{
-            alert("Enter Comment")
+            $("#noComment").show();
         }
     });
 
+    // Adds comment to modal
     function addComment(body){
         $(".modal-body").append(
             $("<span>")
