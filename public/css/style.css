@@ -1,3 +1,6 @@
+body {
+    background-color: lightsteelblue;
+}
 body a, a:visited, a:hover{
     color: purple;
 }
