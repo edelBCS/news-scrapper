@@ -39,7 +39,8 @@ module.exports = function(app){
                                 }
                             )
                             .then(dbUpdate => {
-                                console.log("Article updated:" + dbUpdate);
+                                if(dbUpdate)
+                                    console.log("Article updated");
                             })
                             .catch(err => {
                                 console.log(err);
@@ -61,7 +62,7 @@ module.exports = function(app){
         });
     });
 
-    //finds Article and all its comments
+    // Finds Article and all its comments
     app.get("/api/article/:id", (req, res) => {
         db.Article.findOne({_id: req.params.id})
         .populate("comments")
@@ -84,6 +85,17 @@ module.exports = function(app){
             })
             .catch(err => {
                 res.json(err);
+            });
+    });
+
+    // Adds a like to an article
+    app.post("/api/addlike/:id", (req, res) => {
+        db.Article.findOneAndUpdate({_id: req.params.id}, {$inc: {likes: 1}}, {new: true})
+            .then(data => {
+                res.json(data);
+            })
+            .catch(err => {
+                console.log(err);
             });
     });
 };

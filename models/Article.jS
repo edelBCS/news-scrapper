@@ -18,6 +18,9 @@ var ArticleSchema = new Schema({
     image: {
         type: String
     },
+    likes: {
+        type: Number
+    },
     comments: [{
         type: Schema.Types.ObjectId,
         ref: "Comment"
