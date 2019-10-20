@@ -18,8 +18,10 @@ module.exports = function(app){
                 result.abstract = $(element).children("p").text();
 
                 var image = $(element).children("div").children("div").children("div").attr("style");
+                //removes extra text and thumbnail tag from image URL
                 var imageURL = image.split("'");
-                result.image = imageURL[1];
+                imageURL =  imageURL[1].split("thumbnail_");
+                result.image = imageURL[0] + imageURL[1];
 
                 db.Article.findOne({title: result.title})
                     .then(qryResult => {
