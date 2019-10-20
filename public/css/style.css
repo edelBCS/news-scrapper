@@ -1,6 +1,7 @@
 body {
     background-color: lightsteelblue;
 }
+
 body a, a:visited, a:hover{
     color: purple;
 }
@@ -9,22 +10,22 @@ body a, a:visited, a:hover{
     background-image: url('../img/banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-blend-mode: difference;
 }
 
 .jumbotron {
-    color: purple;
+    color: whitesmoke;
 }
 
 #citylights #bannerWelcome {
-	color: #fff;
+	color: black;
 	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
     letter-spacing: 5px;
 }
 
 #citylights  #bannerLead {
-	color: #fff;
+	color: black;
 	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
-	letter-spacing: 5px;
 }
 
 .comment-pill {
