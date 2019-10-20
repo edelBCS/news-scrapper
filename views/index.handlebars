@@ -1,1 +1,14 @@
-test
+<div class="container">
+    {{#each articles}}
+    <ul class="list-unstyled">
+        <li class="media">
+            <img src="{{this.image}}" class="mr-3" alt="Nicol Bolas Destroyed this Image!">
+            <div class="media-body">
+                <a href="http://www.mtggoldfish.com{{this.link}}"><h5 class="mt-0 mb-1">{{this.title}}</h5></a>
+                <p class="lead">{{this.author}}</p>
+                {{this.abstract}}
+            </div>
+        </li>
+    </ul>    
+    {{/each}}    
+</div>

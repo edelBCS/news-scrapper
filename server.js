@@ -1,8 +1,6 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
-var axios = require("axios");
 var mongoose = require("mongoose");
-var cheerio = require("cheerio");
 
 
 
@@ -26,6 +24,7 @@ mongoose.connect(MONGODB_URI);
 
 // Routes
 require("./routes/api")(app);
+require("./routes/html")(app);
 
 // Start the server
 app.listen(PORT, function() {
