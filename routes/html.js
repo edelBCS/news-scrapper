@@ -1,16 +1,14 @@
-var axios = require("axios");
+var db = require("../models");
 
 module.exports = function (app) {
     app.get("/", (req, res) => {
-
-        //CALL DB Instead of Scraper
-        axios.get("http://" + req.headers.host + "/api/scrape")
+        db.Article.find({})
         .then(articles => {
-            res.render("index", {articles: articles.data});
+            res.render("index", {articles})
         })
         .catch(err => {
             console.log(err);
-        });
+        });        
     });
 
     // Render 404 page for any unmatched routes

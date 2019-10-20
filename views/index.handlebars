@@ -1,14 +1,61 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-4">Welcome to MTG News</h1>
+        <p class="lead">This is a collection of news articles about Magic:The Gathering.</p>
+    </div>
+</div>
+
 <div class="container">
-    {{#each articles}}
     <ul class="list-unstyled">
-        <li class="media">
-            <img src="{{this.image}}" class="mr-3" alt="Nicol Bolas Destroyed this Image!">
+        {{#each articles}}
+        <li class="media py-2">
+            <img src="{{this.image}}" class="mr-3 rounded" alt="Nicol Bolas Destroyed this Image!">
             <div class="media-body">
-                <a href="http://www.mtggoldfish.com{{this.link}}"><h5 class="mt-0 mb-1">{{this.title}}</h5></a>
-                <p class="lead">{{this.author}}</p>
-                {{this.abstract}}
+                <a href="http://www.mtggoldfish.com{{this.link}}">
+                    <h5 class="mt-0 mb-1">{{this.title}}</h5>
+                </a>
+                <small>by {{this.author}}</small>
+                <p class="lead">{{this.abstract}}</p>
+            </div>
+            <div>
+                <button type="button" class="btn btn-secondary btn-sm comment-btn" data-toggle="modal"
+                    data-target="#commentsModalCenter" data-id="{{this._id}}">
+                    <i class="far fa-comments mr-1"></i>Comments
+                </button>
+                <button class="btn btn-secondary btn-sm like-btn" data-id="{{this._id}}"><i
+                        class="far fa-thumbs-up mr-1"></i>Like</button>
+
             </div>
         </li>
-    </ul>    
-    {{/each}}    
+        <hr>
+        {{/each}}
+    </ul>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="commentsModalCenter" tabindex="-1" role="dialog" aria-labelledby="commentsModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentsModalCenterTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="commentBody" id="commentBodyInput">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary add-comment-btn" type="button">Button</button>
+                    </div>
+                </div>
+                {{!-- <input type="text" name="commentBody" id="commentBody">
+                <button type="button" class="btn btn-primary add-comment-btn">Add Comment</button> --}}
+            </div>
+        </div>
+    </div>
 </div>
