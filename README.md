@@ -15,4 +15,6 @@
 ## What is this?
 This is a MTG news site that scrapes articles from mtggoldfish.com.  Users can leave likes and comments on articles.
 
+![Scrape Button](./public/img/readMeScraper.jpg "Scrape Button")
+
 A user can initiate a scrape by clicking the button in the site banner.  This will re-scrape the newest articles and save them to the sites mongo database.
