@@ -11,27 +11,31 @@
 <div class="container">
     <ul class="list-unstyled">
         {{#each articles}}
-        <li class="media py-2">
-            <img src="{{this.image}}" class="mr-3 rounded" alt="Nicol Bolas Destroyed this Image!">
-            <div class="media-body">
-                <a href="http://www.mtggoldfish.com{{this.link}}">
-                    <h5 class="mt-0 mb-1">{{this.title}}</h5>
-                </a>
-                <small>by {{this.author}}</small>
-                <p class="lead">{{this.abstract}}</p>
-            </div>
-            <div>
-                <button type="button" class="btn btn-secondary btn-sm comment-btn" data-toggle="modal"
-                    data-target="#commentsModalCenter" data-id="{{this._id}}">
-                    <i class="far fa-comments mr-1"></i>Comments
-                </button>
-                {{#if this.likes}}
-                <button class="btn btn-secondary btn-sm like-btn" data-id="{{this._id}}"><i
-                        class="far fa-thumbs-up mr-1"></i>Likes({{this.likes}})</button>
-                {{else}}
-                <button class="btn btn-secondary btn-sm like-btn" data-id="{{this._id}}"><i
-                        class="far fa-thumbs-up mr-1"></i>Likes(0)</button>
-                {{/if}}
+        <li class="media py-2 d-flex justify-content-between">
+            <div class="row">
+                <div class="col-10 m-auto col-lg-3">
+                    <img src="{{this.image}}" class="img-fluid mr-3 rounded vw-100" alt="Nicol Bolas Destroyed this Image!">
+                </div>
+                <div class="media-body col-10 m-auto col-lg-6">
+                    <a href="http://www.mtggoldfish.com{{this.link}}">
+                        <h5 class="mt-0 mb-1">{{this.title}}</h5>
+                    </a>
+                    <small>by {{this.author}}</small>
+                    <p class="lead">{{this.abstract}}</p>
+                </div>
+                <div class="col-12 col-lg-3 text-center">
+                    <button type="button" class="btn btn-secondary btn-sm comment-btn" data-toggle="modal"
+                        data-target="#commentsModalCenter" data-id="{{this._id}}">
+                        <i class="far fa-comments mr-1"></i>Comments
+                    </button>
+                    {{#if this.likes}}
+                    <button class="btn btn-secondary btn-sm like-btn" data-id="{{this._id}}"><i
+                            class="far fa-thumbs-up mr-1"></i>Likes({{this.likes}})</button>
+                    {{else}}
+                    <button class="btn btn-secondary btn-sm like-btn" data-id="{{this._id}}"><i
+                            class="far fa-thumbs-up mr-1"></i>Likes(0)</button>
+                    {{/if}}
+                </div>
             </div>
         </li>
         <hr>
@@ -50,7 +54,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body container">
 
             </div>
             <div class="modal-footer">

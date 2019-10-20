@@ -85,7 +85,7 @@ $(function(){
     function addComment(body){
         $(".modal-body").append(
             $("<span>")
-            .attr("class", "badge badge-pill badge-info")
+            .attr("class", "badge badge-pill badge-secondary comment-pill m-1")
             .text(body)
         );
         $(".modal-body").append($("<br>"));
