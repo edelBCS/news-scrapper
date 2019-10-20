@@ -19,7 +19,8 @@ var ArticleSchema = new Schema({
         type: String
     },
     likes: {
-        type: Number
+        type: Number,
+        default: 0
     },
     comments: [{
         type: Schema.Types.ObjectId,
