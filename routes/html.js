@@ -3,6 +3,7 @@ var db = require("../models");
 module.exports = function (app) {
     app.get("/", (req, res) => {
         db.Article.find({})
+        .sort({created: -1})
         .then(articles => {
             res.render("index", {articles})
         })
