@@ -62,7 +62,6 @@ module.exports = function(app){
                     })
                 articles.push(result);
             });
-
             res.send(articles);
         });
     });

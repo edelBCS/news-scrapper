@@ -1,10 +1,5 @@
 $(function(){
-    // When DOM loads, run scrape
-    // $.get("/api/scrape", function(data){
-    //     console.log("latest articles have been scraped...\n" + data);
-    // });
-
-    // Add like to article
+    // Add like to article when like btn is clicked
     $(document).on("click", ".like-btn", function(e){
         e.preventDefault();
 
@@ -34,7 +29,7 @@ $(function(){
         });
     });
 
-    // Opens comment modal
+    // Clears and reloads comments when comment modal is opened
     $(document).on("click", ".comment-btn", function(e){
         e.preventDefault();
 
@@ -75,9 +70,10 @@ $(function(){
                 }
             })
             .then(function(data){
+                //display new comment
                 addComment(commentText);
 
-                //Increase comment-btn count                
+                //Increase count on comment-btn                 
                 var count = parseInt($("#commentCount").text());
                 $(".comment-btn").each(function(){
                     if($(this).attr("data-id") === commentBtnDataID){
@@ -85,21 +81,23 @@ $(function(){
                     }
                 });
 
+                //clear comment input area
                 $("#commentBodyInput").val("");
             })
         }else{
+            //shows warning is comment input area is empty
             $("#noComment").show();
         }
     });
 
-    // Adds comment to modal
+    // writes comment to modal DOM
     function addComment(body, dataID){
         var count = parseInt($("#commentCount").text()) + 1;
     
         //Increase Modal Comment Count
         $("#commentCount").text(count);
 
-        //Add comment to modal
+        //Append comment to modal
         $(".modal-body").append(
             $("<p>")
             .attr("class", "mx-4")

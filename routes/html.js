@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = function (app) {
+    // Render Main page
     app.get("/", (req, res) => {
         db.Article.find({})
         .sort({created: -1})
