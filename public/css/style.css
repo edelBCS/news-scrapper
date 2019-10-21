@@ -6,6 +6,11 @@ body a, a:visited, a:hover{
     color: purple;
 }
 
+footer {
+    background-color: #6d6138;
+    color: #CCBCA8;
+}
+
 .bg-cover {
     background-image: url('../img/banner.jpg');
     background-repeat: no-repeat;
