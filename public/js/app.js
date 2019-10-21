@@ -63,18 +63,28 @@ $(function(){
         e.preventDefault();
 
         var commentText = $("#commentBodyInput").val();
+        var commentBtnDataID = $(this).attr("data-id");
 
         // Get comment and insert into db
         if(commentText != ""){
             $.ajax({
                 method: "POST",
-                url: "/api/comment/" + $(this).attr("data-id"),
+                url: "/api/comment/" + commentBtnDataID,
                 data: {
                     body: commentText
                 }
             })
             .then(function(data){
                 addComment(commentText);
+
+                //Increase comment-btn count                
+                var count = parseInt($("#commentCount").text());
+                $(".comment-btn").each(function(){
+                    if($(this).attr("data-id") === commentBtnDataID){
+                        $(this).html(`<i class="far fa-comments mr-1"></i>Comments(${count})`);
+                    }
+                });
+
                 $("#commentBodyInput").val("");
             })
         }else{
@@ -83,13 +93,16 @@ $(function(){
     });
 
     // Adds comment to modal
-    function addComment(body){
+    function addComment(body, dataID){
         var count = parseInt($("#commentCount").text()) + 1;
+    
+        //Increase Modal Comment Count
         $("#commentCount").text(count);
 
+        //Add comment to modal
         $(".modal-body").append(
             $("<p>")
-            .attr("class", "mx-4")//badge badge-pill badge-secondary comment-pill m-1")
+            .attr("class", "mx-4")
             .text(body)
         );
         $(".modal-body").append($("<hr>").attr("class", "mx-4"));
