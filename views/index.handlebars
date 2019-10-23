@@ -13,17 +13,17 @@
         {{#each articles}}
         <li class="media py-2 d-flex justify-content-between">
             <div class="row">
-                <div class="col-10 m-auto col-lg-3">
+                <div class="col-10 m-auto col-md-12 col-lg-3">
                     <img src="{{this.image}}" class="img-fluid mr-3 rounded vw-100" alt="Nicol Bolas Destroyed this Image!">
                 </div>
-                <div class="media-body col-10 m-auto col-lg-6">
+                <div class="media-body col-10 col-md-12 m-auto col-lg-5 col-xl-6">
                     <a href="http://www.mtggoldfish.com{{this.link}}">
                         <h5 class="mt-0 mb-1">{{this.title}}</h5>
                     </a>
                     <small>by {{this.author}}</small>
                     <p class="lead">{{this.abstract}}</p>
                 </div>
-                <div class="col-12 col-lg-3 text-center">
+                <div class="col-12 col-lg-4 col-xl-3 text-center">
                     <button type="button" class="btn btn-secondary btn-sm comment-btn" data-toggle="modal"
                         data-target="#commentsModalCenter" data-id="{{this._id}}">
                         <i class="far fa-comments mr-1"></i>Comments({{this.comments.length}})</button>
